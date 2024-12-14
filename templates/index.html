@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Alert System</title>
+{% block title %}{% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="{% static 'css/script2.js' %}" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+     
+
+
+{% block body %}
+<body>
+    <div class="container">
+    <div id="breaking-news-container">
+        <div id="breaking-news-colour" class="slideup animated">
+          
+        </div>  
+         <span class="breaking-news-title delay-animated slidein">
+            <b>BREAKING </b>
+          </span> 
+          <a class="breaking-news-headline delay-animated2 fadein marquee">
+           <b> SEND 200 PEOPLE TO EAST GURGAON IN 20 MINUTES!!!</b>
+          </a>  
+      </div>  
+    
+        <header>
+            <div style="width: 90%;"></div>
+            <button class="Profile"><img src="{% static 'css/User1.png' %}" alt="Profile"></button>
+         <a href="login/">
+            <button class="login-button">
+                Login</button>
+            </a>
+        </header>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="filters"id="filter">
+            <div class="filter"id="filter" value="{{about.category}}">
+                <label for="disaster-type">Disaster Type:</label>
+                <select id="disaster-type">
+                    <option><li><a href="{% url 'services' id=12%}">Earthquake</a></li></option>
+                    <option>Cyclone</option>
+                    <option>Flood</option>
+                    <option>Landslide</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="location">Location:</label>
+                <select id="location">
+                    <option>Delhi</option>
+                    <option>Odisha</option>
+                    <option>Kerala</option>
+                    <option>Himachal Pradesh</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="time">Time:</label>
+                <select id="time">
+                    <option>Past 24 hours</option>
+                    <option>Past week</option>
+                    <option>Past month</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="live-feed-section">
+            <h2>Live Feed:</h2>
+            <div class="live-feed">
+               <li><a href="{% url 'services' id=6 %}">Cyclone Hudhud hit the Andhra Pradesh region </a></li>
+               <li><a href="{% url 'services' id=7%}">Cyclone Phailin struck the eastern coast of India</a></li>
+               <li><a href="{% url 'services' id=12%}">Earthquake in Gujarat experienced widespread destruction of buildings and infrastructure</a></li>
+               <li><a href="{% url 'services' id=13%}">A magnitude 7.6 earthquake hit the Kashmir region</a></li>
+               <li><a href="{% url 'services' id=14%}">earthquake struck the Sikkim region in northeastern India</a></li>
+               <li><a href="{% url 'services' id=15%}">earthquake struck the Latur district in Maharashtra</a></li>
+               <li><a href="{% url 'services' id=16%}">a major landslide occurred in Uttarkashi, Uttarakhand due to heavy rains</a></li>
+               <li><a href="{% url 'services' id=17%}">a landslide in the Kinnaur district of Himachal Pradesh resulted from heavy monsoon rains</a></li>
+               <li><a href="{% url 'services' id=18%}">Fire in Deccan Plateau</a></li>
+               <li><a href="{% url 'services' id=19%}">Fire in Sikkim </a></li>
+               <li><a href="{% url 'services' id=20%}">Fire in Rajasthan </a></li>
+            </div>
+        </section>
+
+        <div id="map"></div>
+    </div>
+</body>
+</html>
+</html>
+{% endblock body %}

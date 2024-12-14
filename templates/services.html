@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earthquake Tracker</title>
+  <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+
+  <body>
+{% block body %}
+<div class="container">
+  <h1>{{abouts.heading}}</h1>
+
+<button id="generate-pdf" class="pdf-btn">Generate PDF</button>
+<div class="table">
+<table class="table" method ="post" action="/about">
+
+  <thead>
+    <tr>
+      
+      <th scope="col"></th>
+      <th scope="col">Date</th>
+      <th scope="col">Dead</th>
+      <th scope="col">Injured</th>
+      
+    
+      
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+ 
+ 
+  <tbody>
+    
+    <tr>
+    
+      <td><b>{{abouts.disaster_name}}<b></td>
+      <td>{{abouts.date_disaster}}</td>
+      <td>{{abouts.dead}}</td>
+      <td>{{abouts.injured}}</td>
+    
+      
+  
+      <td>{{abouts.category}}</td>
+      
+  </tbody>
+</table>
+</div>
+<div class="description">
+<p>{{abouts.description}}</p>
+</div>
+<div class="tracker">
+  <div class="chart-container">
+    <canvas id="casualtyChart"></canvas>
+    <p>CASUALTY DATA</p>
+  </div>
+  <div class="chart-container">
+    <canvas id="deathChart"></canvas>
+    <p>DEATH COUNT</p>
+  </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'css/script.js' %}" defer></script>
+</body>
+</html>
+
+{% endblock body %}
